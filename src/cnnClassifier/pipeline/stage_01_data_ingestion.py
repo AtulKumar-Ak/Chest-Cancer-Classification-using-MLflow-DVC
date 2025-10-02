@@ -3,7 +3,7 @@ from cnnClassifier.config.configuration import ConfigurationManager
 from cnnClassifier import logger
 
 STAGE_NAME = "Data Ingestion Stage"
-class DataIngestionPipeline:
+class DataIngestionTrainingPipeline:
     def __init__(sellf):
         pass
     def main(self):
@@ -15,7 +15,7 @@ class DataIngestionPipeline:
 if __name__ == "__main__":
     try:
         logger.info(f">>>>> stage {STAGE_NAME} started <<<<<")
-        obj = DataIngestionPipeline()
+        obj = DataIngestionTrainingPipeline()
         obj.main()
         logger.info(f">>>>> stage {STAGE_NAME} completed <<<<<\n\nx==========x")
     except Exception as e:
