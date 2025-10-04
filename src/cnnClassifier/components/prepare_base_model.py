@@ -19,8 +19,8 @@ class PrepareBaseModel:
         self.save_model(path=self.config.base_model_path, model=self.model)
 
     @staticmethod
-    def _prepare_full_model(model, classes, freeze_all, freeze_till, learning_rate):
-        # CRITICAL FIX: Unfreeze last few layers for better learning
+    def _prepare_full_model(model, classes, learning_rate, freeze_all=False, freeze_till=4):
+        # Unfreeze last few layers for better learning
         if freeze_all:
             # Freeze all base model layers
             model.trainable = False
@@ -59,7 +59,7 @@ class PrepareBaseModel:
             outputs=prediction
         )
 
-        # Use Adam optimizer instead of SGD
+        # Use Adam optimizer
         full_model.compile(
             optimizer=tf.keras.optimizers.Adam(learning_rate=learning_rate),
             loss=tf.keras.losses.CategoricalCrossentropy(),
@@ -79,13 +79,13 @@ class PrepareBaseModel:
         return full_model
     
     def update_base_model(self):
-        # CHANGED: Unfreeze last 4 layers instead of freezing all
+        # Unfreeze last 4 layers for better training
         self.full_model = self._prepare_full_model(
             model=self.model,
             classes=self.config.params_classes,
-            freeze_all=False,  # Changed from True
-            freeze_till=4,     # Unfreeze last 4 layers
-            learning_rate=self.config.params_learning_rate
+            learning_rate=self.config.params_learning_rate,
+            freeze_all=False,
+            freeze_till=4
         )
 
         self.save_model(path=self.config.updated_base_model_path, model=self.full_model)
