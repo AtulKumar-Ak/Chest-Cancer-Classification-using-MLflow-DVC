@@ -208,3 +208,5 @@ __marimo__/
 
 
 artifacts/*
+dvc.lock
+.dvcignore

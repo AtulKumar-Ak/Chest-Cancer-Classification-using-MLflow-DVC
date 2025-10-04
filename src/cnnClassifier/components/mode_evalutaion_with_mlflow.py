@@ -3,8 +3,8 @@ from pathlib import Path
 import mlflow
 import mlflow.keras
 import tensorflow as tf
-from src.cnnClassifier.entity.config_entity import EvaluationConfig
-from src.cnnClassifier.utils.common import save_json
+from cnnClassifier.entity.config_entity import EvaluationConfig
+from cnnClassifier.utils.common import save_json
 from urllib.parse import urlparse #To check if MLflow is using a remote server (DagsHub) or local file storage ,, Imports a function to parse URL
 class Evaluation:
     def __init__(self, config: EvaluationConfig):
