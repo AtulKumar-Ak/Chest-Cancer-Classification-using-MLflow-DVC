@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/vs/ml/Chest-Cancer-Classification-using-MLflow-DVC/mlruns/0/258f9b208de542b2b1052406dfbe21ab/artifacts
+end_time: 1759606177491
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 258f9b208de542b2b1052406dfbe21ab
+run_name: gaudy-bass-78
+run_uuid: 258f9b208de542b2b1052406dfbe21ab
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1759606155951
+status: 3
+tags: []
+user_id: KIIT0001
